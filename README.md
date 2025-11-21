@@ -4,10 +4,10 @@
 Take control of your browsing and boost your productivity with Xygones. Block distracting websites, use the Pomodoro timer to structure your work, and track your progress - all while keeping your data completely private.
 
 ## Key Features
--🔒 **Website Blocker** - Block distracting sites during focus sessions
--⏱️ **Pomodoro Timer** - Work in focused intervals with breaks
--🎨 **Greyscale Mode** - Reduce visual distractions  
--📊 **Productivity Tracking** - Monitor your focus time
+-🔒 **Website Blocker** : Block distracting sites during focus sessions
+-⏱️ **Pomodoro Timer** : Work in focused intervals with breaks
+-🎨 **Greyscale Mode** : Reduce visual distractions  
+-📊 **Productivity Tracking** : Monitor your focus time
 
 ## Privacy First
 - No data collection
