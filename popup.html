@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xygones - Focus & Productivity</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <h1>⚡ Xygones</h1>
+    <p class="tagline">X out distractions and boost your productivity!</p>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="focus">🎯 Focus</button>
+    <button class="tab-btn" data-tab="blocklist">🚫 Blocklist</button>
+    <button class="tab-btn" data-tab="stats">📊 Stats</button>
+    <button class="tab-btn" data-tab="settings">⚙️ Settings</button>
+  </div>
+
+  <!-- Tab Content Container -->
+  <div class="tab-content">
+    
+    <!-- FOCUS TAB -->
+    <div class="tab-pane active" id="focus-tab">
+      <!-- Pomodoro Timer -->
+      <div class="timer-container">
+        <div class="timer-display" id="timer-display">25:00</div>
+        <div class="timer-label" id="timer-label">Ready to Focus</div>
+        <div class="timer-controls">
+          <button class="btn btn-primary" id="start-timer">Start Focus</button>
+          <button class="btn btn-secondary" id="stop-timer" style="display: none;">Stop</button>
+          <button class="btn btn-tertiary" id="reset-timer">Reset</button>
+        </div>
+      </div>
+
+      <!-- Greyscale Mode Toggle -->
+      <div class="feature-card">
+        <div class="feature-header">
+          <span class="feature-icon">🖤</span>
+          <span class="feature-title">Greyscale Mode</span>
+          <span class="status-indicator" id="greyscale-status">⚪</span>
+        </div>
+        <p class="feature-desc">Remove colors to reduce visual distractions</p>
+        <button class="btn btn-toggle" id="toggle-greyscale">Toggle Greyscale</button>
+      </div>
+    </div>
+
+    <!-- BLOCKLIST TAB -->
+    <div class="tab-pane" id="blocklist-tab">
+      <div class="section">
+        <h3>🚫 Blocked Websites</h3>
+        
+        <!-- Quick Add Popular Sites -->
+        <div class="quick-add">
+          <p class="section-label">Quick Add:</p>
+          <div class="quick-buttons">
+            <button class="btn-quick" data-site="youtube.com">YouTube</button>
+            <button class="btn-quick" data-site="facebook.com">Facebook</button>
+            <button class="btn-quick" data-site="instagram.com">Instagram</button>
+            <button class="btn-quick" data-site="twitter.com">Twitter</button>
+            <button class="btn-quick" data-site="reddit.com">Reddit</button>
+          </div>
+        </div>
+
+        <!-- Custom Site Input -->
+        <div class="input-group">
+          <input type="text" id="site-input" placeholder="Enter website (e.g., example.com)" />
+          <button class="btn btn-add" id="add-site">Add</button>
+        </div>
+
+        <!-- Blocked Sites List -->
+        <div class="blocked-list" id="blocked-list">
+          <!-- Dynamic list will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- STATISTICS TAB -->
+    <div class="tab-pane" id="stats-tab">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-value" id="stat-focus-time">0</div>
+          <div class="stat-label">Minutes Focused Today</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">🍅</div>
+          <div class="stat-value" id="stat-pomodoros">0</div>
+          <div class="stat-label">Completed Sessions</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">🛡️</div>
+          <div class="stat-value" id="stat-blocks">0</div>
+          <div class="stat-label">Sites Blocked</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">🔥</div>
+          <div class="stat-value" id="stat-streak">0</div>
+          <div class="stat-label">Day Streak</div>
+        </div>
+      </div>
+
+      <button class="btn btn-secondary" id="reset-stats">Reset Statistics</button>
+    </div>
+
+    <!-- SETTINGS TAB -->
+    <div class="tab-pane" id="settings-tab">
+      <div class="section">
+        <h3>⚙️ Timer Settings</h3>
+        
+        <div class="setting-row">
+          <label for="focus-duration">Focus Duration (minutes):</label>
+          <input type="number" id="focus-duration" min="1" max="60" value="25" />
+        </div>
+        
+        <div class="setting-row">
+          <label for="break-duration">Break Duration (minutes):</label>
+          <input type="number" id="break-duration" min="1" max="30" value="5" />
+        </div>
+
+        <button class="btn btn-primary" id="save-settings">Save Settings</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Stay focused. Stay unstoppable. — Xygones ⚡</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocked - Xygones</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2358da 0%, #17316e 100%);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .icon {
+      font-size: 120px;
+      margin-bottom: 30px;
+      animation: bounce 2s infinite;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .message {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #23ff96;
+    }
+
+    .quote {
+      font-size: 18px;
+      font-style: italic;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .stat-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #23ff96;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .btn-back {
+      padding: 15px 40px;
+      background: #23ff96;
+      color: #17316e;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(35, 255, 150, 0.4);
+    }
+
+    .btn-back:hover {
+      background: #1ee884;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(35, 255, 150, 0.5);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🛡️</div>
+    <h1>Site Blocked</h1>
+    <p class="message">Stay on track! This site is blocked during your focus session.</p>
+    <p class="quote">"Focus now. Freedom later." — Xygones 💪</p>
+    
+    <div class="stats-container">
+      <div class="stat-box">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-value" id="focus-time">0</div>
+        <div class="stat-label">Minutes Today</div>
+      </div>
+      
+      <div class="stat-box">
+        <div class="stat-icon">🍅</div>
+        <div class="stat-value" id="pomodoros">0</div>
+        <div class="stat-label">Sessions</div>
+      </div>
+      
+      <div class="stat-box">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-value" id="streak">0</div>
+        <div class="stat-label">Day Streak</div>
+      </div>
+    </div>
+    
+    <button class="btn-back" onclick="goBack()">← Go Back</button>
+  </div>
+
+  <script>
+    // Load and display statistics
+    chrome.storage.sync.get(['stats'], (result) => {
+      const stats = result.stats || {
+        focusTime: 0,
+        completedPomodoros: 0,
+        streak: 0
+      };
+      
+      document.getElementById('focus-time').textContent = stats.focusTime;
+      document.getElementById('pomodoros').textContent = stats.completedPomodoros;
+      document.getElementById('streak').textContent = stats.streak;
+    });
+
+    // Go back function
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
